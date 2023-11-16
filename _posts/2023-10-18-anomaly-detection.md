@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Low Count Anomaly Detection
+title: TIL: Low Count Anomaly Detection
 subtitle: How to do anomaly detection on high signal to noise ratio data.
-tags: [time-series]
+tags: [time-series, 'til']
 comments: false
 ---
 
