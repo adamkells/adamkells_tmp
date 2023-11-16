@@ -4,7 +4,6 @@ title: About
 permalink: /about/
 ---
 
-- For a copy of my CV, click [here](/assets/kells_cv.pdf)
 - I currently work for data consulting company Artefact as a data science manager.
 - Before that I spent two years developing causality techniques for time series at causaLens and a single year at the ill-fated furniture company MADE.com (RIP in peace).
 - I earned my PhD in Biophysics from [Kings College London](https://www.kcl.ac.uk/index.aspx) in 2019 where I was supervised by
