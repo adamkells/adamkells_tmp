@@ -9,13 +9,11 @@ layout: base
 
   {{ content }}
 
-
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
   {% endif %}
-
 
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
@@ -25,15 +23,26 @@ layout: base
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
       <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        <div class="post-content">
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+
+          {%- if post.subtitle -%}
+            <p class="post-subtitle">{{ post.subtitle }}</p>
+          {%- endif -%}
+
+          {%- if post.image -%}
+            <img class="post-image" src="{{ post.image }}" alt="{{ post.title | escape }}">
+          {%- endif -%}
+
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </div>
       </li>
       {%- endfor -%}
     </ul>
@@ -55,7 +64,5 @@ layout: base
         </ul>
       </div>
     {%- endif %}
-
   {%- endif -%}
-
 </div>
