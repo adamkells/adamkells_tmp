@@ -36,8 +36,9 @@ layout: base
           {%- endif -%}
 
           {%- if post.image -%}
-            <img class="post-image" src="{{ post.image }}">
+            <img class="post-image" src="{{ post.image | relative_url }}">
           {%- endif -%}
+
 
           {%- if site.show_excerpts -%}
             {{ post.excerpt }}
