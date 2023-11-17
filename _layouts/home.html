@@ -2,6 +2,31 @@
 layout: base
 ---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+
+  <!-- Include the CSS code here -->
+  <style>
+    .post-wrapper {
+      display: flex;
+      align-items: center; /* Align items vertically in the center */
+    }
+
+    .post-text {
+      flex: 1; /* Take up remaining space in the flex container */
+    }
+
+    .post-image-wrapper {
+      margin-left: 20px; /* Adjust margin as needed */
+    }
+  </style>
+</head>
+<body>
+
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -25,25 +50,32 @@ layout: base
       <li>
         <div class="post-content">
           <span class="post-meta">{{ post.date | date: date_format }}</span>
-          <h3>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
-            </a>
-          </h3>
 
-          {%- if post.subtitle -%}
-            <p class="post-subtitle">{{ post.subtitle }}</p>
-          {%- endif -%}
+          <div class="post-wrapper">
+            <div class="post-text">
+              <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+                </a>
+              </h3>
 
-          {%- if post.image -%}
-            <img class="post-image" src="{{ post.image | relative_url }}">
-          {%- endif -%}
+              {%- if post.subtitle -%}
+                <p class="post-subtitle">{{ post.subtitle }}</p>
+              {%- endif -%}
 
+              {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
+              {%- endif -%}
+            </div>
 
-          {%- if site.show_excerpts -%}
-            {{ post.excerpt }}
-          {%- endif -%}
+            {%- if post.image -%}
+              <div class="post-image-wrapper">
+                <img class="post-image" src="{{ post.image | relative_url }}">
+              </div>
+            {%- endif -%}
+          </div>
         </div>
+        
       </li>
       {%- endfor -%}
     </ul>
@@ -67,3 +99,6 @@ layout: base
     {%- endif %}
   {%- endif -%}
 </div>
+
+</body>
+</html>
