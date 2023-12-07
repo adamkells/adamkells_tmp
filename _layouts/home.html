@@ -69,8 +69,8 @@ layout: base
             </div>
 
             {%- if post.image -%}
-              <div class="post-image-wrapper">
-                <img class="post-image" src="{{ post.image | relative_url }}">
+              <div class="post-image-wrapper"  style="width: 50%;">
+                <img class="post-image" src="{{ post.image | relative_url }}" style="width: 100%;">
               </div>
             {%- endif -%}
           </div>
