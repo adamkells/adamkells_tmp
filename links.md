@@ -3,9 +3,14 @@ layout: page
 title: Links
 subtitle:
 ---
-Just a random selection of some of my favourite resources and talks.
+
+## My Talks
+1. **Artefact Journal Club: Hierarchical Probabilistic Time Series**
+   - [Link](https://www.youtube.com/watch?v=nx_nVa9hfvQ&pp=ygUTYWRhbSBrZWxscyBhcnRlZmFjdA%3D%3D)
 
 ## YouTube Videos
+
+Just a random selection of some of my favourite resources and talks.
 
 1. **Natural Intelligence is All You Need [tm]**
    - Channel: PyData
