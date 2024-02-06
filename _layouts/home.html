@@ -45,9 +45,53 @@ layout: base
         </p>
       </div>
       <div class="post-image-wrapper" style="flex: 1;"></div>
-        <img class="post-image" src="/assets/adam-headshot.jpg" alt="About Me Image">
+        <img class="post-image" src="/assets/adam-headshot.jpg" alt="About Me Image"   style="width: 30%;">
       </div>
     </div>
+  </section>
+
+  <!-- Add section for Blog Posts -->
+  <section>
+    <h2>Blog Posts</h2>
+    {%- if posts.size > 0 -%}
+      {%- if page.list_title -%}
+        <h2 class="post-list-heading">{{ page.list_title }}</h2>
+      {%- endif -%}
+      <ul class="post-list">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- for post in posts -%}
+        <li>
+          <div class="post-content">
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+            <div class="post-wrapper">
+              <div class="post-text">
+                <h3>
+                  <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                  </a>
+                </h3>
+
+                {%- if post.subtitle -%}
+                  <p class="post-subtitle">{{ post.subtitle }}</p>
+                {%- endif -%}
+
+                {%- if site.show_excerpts -%}
+                  {{ post.excerpt }}
+                {%- endif -%}
+              </div>
+
+              {%- if post.image -%}
+                <div class="post-image-wrapper"  style="width: 50%;">
+                  <img class="post-image" src="{{ post.image | relative_url }}" style="width: 100%;">
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
   </section>
 
   {% if site.paginate %}
