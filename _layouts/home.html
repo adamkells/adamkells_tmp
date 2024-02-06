@@ -44,7 +44,7 @@ layout: base
           I am a data science manager currently working at Artefact. I'm passionate about using data to solve real-world problems and constantly exploring the realms of machine learning, time series forecasting and natural language processing.
         </p>
       </div>
-      <div class="post-image-wrapper" style="flex: 1;"  style="width: 30%;"></div>
+      <div class="post-image-wrapper" style="width: 30%;"></div>
         <img class="post-image" src="/assets/adam-headshot.jpg" alt="About Me Image">
       </div>
     </div>
@@ -53,47 +53,71 @@ layout: base
   <!-- Add section for Blog Posts -->
   <section>
     <h2>Blog Posts</h2>
-    {%- if posts.size > 0 -%}
-      {%- if page.list_title -%}
-        <h2 class="post-list-heading">{{ page.list_title }}</h2>
-      {%- endif -%}
-      <ul class="post-list">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {%- for post in posts -%}
-        <li>
-          <div class="post-content">
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
+  {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
 
-            <div class="post-wrapper">
-              <div class="post-text">
-                <h3>
-                  <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                  </a>
-                </h3>
+  {%- if posts.size > 0 -%}
+    {%- if page.list_title -%}
+      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    {%- endif -%}
+    <ul class="post-list">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {%- for post in posts -%}
+      <li>
+        <div class="post-content">
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
 
-                {%- if post.subtitle -%}
-                  <p class="post-subtitle">{{ post.subtitle }}</p>
-                {%- endif -%}
+          <div class="post-wrapper">
+            <div class="post-text">
+              <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+                </a>
+              </h3>
 
-                {%- if site.show_excerpts -%}
-                  {{ post.excerpt }}
-                {%- endif -%}
-              </div>
+              {%- if post.subtitle -%}
+                <p class="post-subtitle">{{ post.subtitle }}</p>
+              {%- endif -%}
 
-              {%- if post.image -%}
-                <div class="post-image-wrapper"  style="width: 50%;">
-                  <img class="post-image" src="{{ post.image | relative_url }}" style="width: 100%;">
-                </div>
+              {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
               {%- endif -%}
             </div>
-          </div>
-        </li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-  </section>
 
+            {%- if post.image -%}
+              <div class="post-image-wrapper"  style="width: 50%;">
+                <img class="post-image" src="{{ post.image | relative_url }}" style="width: 100%;">
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+        
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    {% if site.paginate %}
+      <div class="pager">
+        <ul class="pagination">
+        {%- if paginator.previous_page %}
+          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+        {%- else %}
+          <li><div class="pager-edge">•</div></li>
+        {%- endif %}
+          <li><div class="current-page">{{ paginator.page }}</div></li>
+        {%- if paginator.next_page %}
+          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+        {%- else %}
+          <li><div class="pager-edge">•</div></li>
+        {%- endif %}
+        </ul>
+      </div>
+    {%- endif %}
+  {%- endif -%}
+</div>
 
 </body>
 </html>
