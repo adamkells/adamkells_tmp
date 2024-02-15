@@ -1,3 +1,4 @@
+---
 title: Berksons Paradox
 subtitle: More pitfalls of sampling
 image: /assets/blogs/berksons/sampled_data.png)
