@@ -1,7 +1,7 @@
 ---
 title: Berksons Paradox
 subtitle: More pitfalls of sampling
-image: /assets/blogs/berksons/sampled_data.png)
+image: /assets/blogs/berksons/sampled_data.png
 tags: [data-science]
 comments: false
 ---
@@ -38,15 +38,15 @@ for quadrant, probability in zip([quadrant1, quadrant2, quadrant3, quadrant4], s
 
 In this code I just set up a scatter plot with the randomly generated data.
 
-[![Random Data](/assets/blogs/berksons/total_data.png)]
+![Random Data](/assets/blogs/berksons/total_data.png)
 
 Then I give each of the four quadrants of the data a different probability of being sampled.
 
-[![Sampling Probabilities](/assets/blogs/berksons/sample_prob.png)]
+![Sampling Probabilities](/assets/blogs/berksons/sample_prob.png)
 
 When I do this sampling I then end up with a new scatter plot that makes it look like my data has a negative correlation.
 
-[![sampled Data](/assets/blogs/berksons/sampled_data.png)]
+![sampled Data](/assets/blogs/berksons/sampled_data.png)
 
 ## So, what do?
 
