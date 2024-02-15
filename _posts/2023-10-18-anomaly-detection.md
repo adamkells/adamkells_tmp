@@ -21,7 +21,7 @@ Their primary finding was that at low volumes, most AD methods struggle but the 
 
 To test this idea out, they generated some synthetic data using a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution) . The Poisson distribution gives the probability of a number of events happening in an interval of time (assuming the events are independent). The Poisson distribution only needs a single parameter $\lambda$ which describes the rate at which events happen.  We can write some simple python code to recreate this.
 
-```
+```python
 import numpy as np
 
 def generate_periodic_poisson_data(periods, frequency, magnitude):
